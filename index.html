@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Booking System</title>
+    <title>Med-Beds Booking | Secure Your Appointment</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,525 +14,917 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+            color: #2a4d69;
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
         }
         
         .container {
-            width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         header {
             text-align: center;
-            padding: 30px 0;
-            margin-bottom: 20px;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .booking-container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .booking-info {
-            flex: 1;
-            min-width: 300px;
-            padding: 30px;
-            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            padding: 40px 20px;
+            background: linear-gradient(to right, #0a7ea4 0%, #1cb5e0 100%);
             color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         
-        .booking-form {
-            flex: 2;
-            min-width: 400px;
-            padding: 30px;
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
         
-        .info-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .language-selector select {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: none;
+            background: white;
+            color: #2a4d69;
             font-weight: 500;
         }
         
-        .info-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .info-list li {
+        .logo {
+            font-size: 32px;
             margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            font-weight: 300;
+        }
+        
+        .features {
             display: flex;
-            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
         }
         
-        .info-list i {
-            margin-right: 10px;
-            margin-top: 4px;
-            color: #3498db;
+        .feature {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
         }
         
-        .contact-info {
-            margin-top: 30px;
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 40px;
+            color: #1cb5e0;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #0a7ea4;
+            margin-bottom: 15px;
+        }
+        
+        .testimonials {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial {
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-author {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #2a4d69;
+        }
+        
+        .booking-section {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin: 40px 0;
+        }
+        
+        .booking-btn {
+            background: linear-gradient(to right, #0a7ea4 0%, #1cb5e0 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        
+        .booking-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .dropdown-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .form-group {
             margin-bottom: 20px;
         }
         
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #2c3e50;
+            color: #2a4d69;
         }
         
-        input, select, textarea {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 5px;
             font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
         
         .form-row {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .form-row .form-group {
             flex: 1;
-            min-width: 200px;
         }
         
-        button {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            font-size: 16px;
-            border-radius: 6px;
+        .payment-options {
+            margin: 25px 0;
+        }
+        
+        .payment-options h4 {
+            color: #0a7ea4;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        .payment-option:hover {
+            background-color: #f0f9ff;
+        }
+        
+        .payment-option input {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .payment-option label {
+            display: flex;
+            align-items: center;
             cursor: pointer;
             font-weight: 500;
-            transition: background 0.3s;
-            width: 100%;
         }
         
-        button:hover {
-            background: #2980b9;
+        .payment-option i {
+            margin-right: 10px;
+            font-size: 20px;
+            color: #1cb5e0;
         }
         
-        .required::after {
-            content: '*';
-            color: #e74c3c;
-            margin-left: 4px;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-        
-        /* Success Page Styles */
-        #successPage {
+        .modal {
             display: none;
-            text-align: center;
-            padding: 50px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
         
-        .success-icon {
-            font-size: 5rem;
-            color: #27ae60;
-            margin-bottom: 20px;
-        }
-        
-        .success-title {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        
-        .success-message {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .booking-details {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 500px;
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
             text-align: left;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
         }
         
-        .booking-details h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
+        .modal-content h3 {
+            color: #0a7ea4;
+            margin-bottom: 20px;
+            text-align: center;
         }
         
-        .detail-item {
+        .review-details {
+            margin-bottom: 20px;
+        }
+        
+        .review-item {
             margin-bottom: 10px;
             display: flex;
         }
         
-        .detail-label {
-            font-weight: 600;
-            min-width: 120px;
+        .review-item strong {
+            min-width: 150px;
+            display: inline-block;
+            color: #2a4d69;
         }
         
-        .email-note {
-            background: #e8f4fc;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            text-align: left;
+        .confirmation-page {
+            text-align: center;
+            padding: 60px 30px;
         }
         
-        .formspree-setup {
-            background: #fff4e6;
-            border-left: 4px solid #ffa94d;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-            text-align: left;
+        .confirmation-icon {
+            font-size: 60px;
+            color: #0a7ea4;
+            margin-bottom: 20px;
         }
         
-        .formspree-setup h3 {
-            color: #e67700;
-            margin-bottom: 15px;
-        }
-        
-        .formspree-setup ol {
-            padding-left: 20px;
-        }
-        
-        .formspree-setup li {
-            margin-bottom: 10px;
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            color: #2a4d69;
+            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            .booking-container {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .feature {
+                width: 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .review-item {
                 flex-direction: column;
             }
             
-            .booking-info, .booking-form {
-                min-width: 100%;
+            .review-item strong {
+                min-width: unset;
+                margin-bottom: 5px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="bookingPage">
         <header>
-            <div class="logo">
-                <i class="fas fa-calendar-check"></i>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="pt">Português</option>
+                    <option value="nl">Nederlands</option>
+                </select>
             </div>
-            <h1>Professional Booking System</h1>
-            <p class="subtitle">Book your appointment with us. Fill out the form below and we'll get back to you shortly.</p>
+            <div class="logo">
+                <i class="fas fa-procedures"></i> <span data-translate="med_beds">MED-BEDS</span>
+            </div>
+            <h1 data-translate="header_title">Secure a Direct Appointment with Medbeds Experts</h1>
+            <p class="subtitle" data-translate="header_subtitle">Experience the future of wellness with our cutting-edge med-bed technology. Schedule your personalized consultation with our certified specialists today.</p>
         </header>
         
-        <!-- Formspree Setup Instructions -->
-        <div class="formspree-setup card">
-            <h3><i class="fas fa-info-circle"></i> Form Setup Required</h3>
-            <p>To make this form work and receive emails at <strong>anothercreation0@gmail.com</strong>, you need to:</p>
-            <ol>
-                <li>Go to <a href="https://formspree.io" target="_blank">Formspree.io</a> and create a free account</li>
-                <li>Verify your email address (anothercreation0@gmail.com)</li>
-                <li>Create a new form in Formspree</li>
-                <li>Replace the form action URL below with your Formspree form URL</li>
-                <li>Upload this page to a web server (Formspree won't work with local file:// URLs)</li>
-            </ol>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-user-md"></i>
+                <h3 data-translate="feature1_title">Expert Consultation</h3>
+                <p data-translate="feature1_text">Connect with our certified med-bed specialists for a comprehensive health assessment.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-clock"></i>
+                <h3 data-translate="feature2_title">Instant Booking</h3>
+                <p data-translate="feature2_text">Schedule your appointment at your convenience with our easy online booking system.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3 data-translate="feature3_title">Secure Process</h3>
+                <p data-translate="feature3_text">Your personal information and payment details are protected with advanced encryption.</p>
+            </div>
         </div>
         
-        <!-- Booking Form Section -->
-        <div id="bookingPage" class="card">
-            <div class="booking-container">
-                <div class="booking-info">
-                    <h2 class="info-title">Why Book With Us?</h2>
-                    <ul class="info-list">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Professional and certified experts</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Flexible scheduling to fit your needs</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Quick response time</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Quality service guaranteed</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="contact-info">
-                        <h3 class="info-title">Contact Information</h3>
-                        <p><i class="fas fa-envelope"></i> anothercreation0@gmail.com</p>
-                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-                        <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 456</p>
-                    </div>
-                </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <i class="fas fa-quote-left" style="color: #1cb5e0; font-size: 24px; margin-bottom: 15px;"></i>
+                <p data-translate="testimonial_text">The med-bed consultation completely transformed my approach to wellness. The experts were knowledgeable and caring, and the technology is truly revolutionary. Worth every penny!</p>
+                <p class="testimonial-author" data-translate="testimonial_author">- Sarah Johnson, Wellness Advocate</p>
+            </div>
+        </div>
+        
+        <div class="booking-section">
+            <h2 data-translate="booking_title">Ready to Experience the Future of Wellness?</h2>
+            <p data-translate="booking_subtitle">Take the first step toward optimal health by booking your consultation with our med-bed experts.</p>
+            
+            <button class="booking-btn" onclick="toggleDropdown()" data-translate="book_now_btn">Book Now <i class="fas fa-arrow-down"></i></button>
+            
+            <div class="dropdown-content" id="dropdownContent">
+                <h3 data-translate="contact_form_title">Provide Your Contact Information</h3>
+                <p data-translate="contact_form_subtitle">We'll use these details to confirm your appointment and send important updates</p>
                 
-                <div class="booking-form">
-                    <!-- Replace the action URL with your Formspree form URL -->
-                    <form id="bookingForm" action="https://formspree.io/f/xdklppyk" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName" class="required">First Name</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName" class="required">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email" class="required">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone" class="required">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required>
-                            </div>
-                        </div>
-                        
+                <form id="contactForm" class="contact-form" action="https://formspree.io/f/xdklppyk" method="POST">
+                    <div class="form-group">
+                        <label for="email" data-translate="email_label">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" data-translate="phone_label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="service" class="required">Select Service</label>
-                            <select id="service" name="service" required>
-                                <option value="">Choose a service...</option>
-                                <option value="consultation">Initial Consultation</option>
-                                <option value="project">Project Development</option>
-                                <option value="support">Technical Support</option>
-                                <option value="training">Professional Training</option>
-                                <option value="other">Other Service</option>
+                            <label for="country" data-translate="country_label">Country</label>
+                            <select id="country" name="country" required>
+                                <option value="" data-translate="select_option">Select</option>
+                                <option value="usa">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                                <option value="greece">Greece</option>
+                                <option value="spain">Spain</option>
+                                <option value="italy">Italy</option>
+                                <option value="other" data-translate="other_option">Other</option>
                             </select>
                         </div>
                         
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date" class="required">Preferred Date</label>
-                                <input type="date" id="date" name="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="time" class="required">Preferred Time</label>
-                                <select id="time" name="time" required>
-                                    <option value="">Select a time...</option>
-                                    <option value="09:00">9:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="13:00">1:00 PM</option>
-                                    <option value="14:00">2:00 PM</option>
-                                    <option value="15:00">3:00 PM</option>
-                                    <option value="16:00">4:00 PM</option>
-                                </select>
-                            </div>
-                        </div>
-                        
                         <div class="form-group">
-                            <label for="message">Additional Message</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Please provide any additional details that might be helpful..."></textarea>
+                            <label for="city" data-translate="city_label">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address" data-translate="address_label">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    
+                    <div class="payment-options">
+                        <h4 data-translate="payment_method_title">Choose a Payment Method</h4>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="paypal" name="paymentMethod" value="PayPal" required>
+                            <label for="paypal"><i class="fab fa-paypal"></i> PayPal</label>
                         </div>
                         
-                        <button type="submit">Book Appointment</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Success Confirmation Section -->
-        <div id="successPage" class="card">
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2 class="success-title">Appointment Booked Successfully!</h2>
-            <p class="success-message">Thank you for booking with us. We have received your details and will contact you shortly to confirm your appointment.</p>
-            
-            <div class="email-note">
-                <h3><i class="fas fa-envelope"></i> Email Notification</h3>
-                <p>A copy of your booking details has been sent to <strong>anothercreation0@gmail.com</strong>.</p>
-                <p>You should receive a confirmation email within 24 hours.</p>
-            </div>
-            
-            <div class="booking-details">
-                <h3>Your Booking Details</h3>
-                <div class="detail-item">
-                    <span class="detail-label">Name:</span>
-                    <span id="summary-name"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Email:</span>
-                    <span id="summary-email"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Phone:</span>
-                    <span id="summary-phone"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Service:</span>
-                    <span id="summary-service"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Date & Time:</span>
-                    <span id="summary-datetime"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Message:</span>
-                    <span id="summary-message"></span>
-                </div>
-            </div>
-            
-            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px;">
-                <button onclick="window.location.reload()" style="width: auto; padding: 10px 20px;">Book Another Appointment</button>
-                <button onclick="print()" style="width: auto; padding: 10px 20px; background: #7f8c8d;">Print Confirmation</button>
+                        <div class="payment-option">
+                            <input type="radio" id="venmo" name="paymentMethod" value="Venmo">
+                            <label for="venmo"><i class="fas fa-money-bill-wave"></i> Venmo</label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="moneygram" name="paymentMethod" value="MoneyGram">
+                            <label for="moneygram"><i class="fas fa-exchange-alt"></i> MoneyGram</label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="westernunion" name="paymentMethod" value="Western Union">
+                            <label for="westernunion"><i class="fas fa-globe"></i> Western Union</label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="crypto" name="paymentMethod" value="Cryptocurrency">
+                            <label for="crypto"><i class="fas fa-coins"></i> Cryptocurrency</label>
+                        </div>
+                        
+                        <div class="payment-option">
+                            <input type="radio" id="zelle" name="paymentMethod" value="Zelle">
+                            <label for="zelle"><i class="fas fa-mobile-alt"></i> Zelle</label>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="booking-btn" onclick="reviewDetails()" data-translate="submit_btn">Submit</button>
+                </form>
             </div>
         </div>
         
         <footer>
-            <p>© 2023 Professional Booking System. All rights reserved.</p>
+            <p>© 2023 <span data-translate="med_beds">Med-Beds</span> <span data-translate="wellness_center">Wellness Center</span>. <span data-translate="all_rights">All rights reserved</span>.</p>
+            <p data-translate="contact_info">Contact us: support@medbeds.com | (800) 123-4567</p>
         </footer>
     </div>
 
-    <script>
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('date').setAttribute('min', today);
+    <!-- Confirmation Page (initially hidden) -->
+    <div id="confirmationPage" class="container" style="display: none;">
+        <header>
+            <div class="language-selector">
+                <select id="languageSelectConfirmation">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="pt">Português</option>
+                    <option value="nl">Nederlands</option>
+                </select>
+            </div>
+            <div class="logo">
+                <i class="fas fa-procedures"></i> <span data-translate="med_beds">MED-BEDS</span>
+            </div>
+        </header>
         
-        // Form submission handling
-        document.getElementById('bookingForm').addEventListener('submit', function(event) {
-            // For demo purposes, we'll prevent the actual Formspree submission
-            // and show the success page. In production, you would remove this.
+        <div class="confirmation-page">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 data-translate="confirmation_title">Payment Instructions Will Be Emailed</h1>
+            <p data-translate="confirmation_text">We will send detailed payment instructions to your email address within 24 hours. Please check your inbox and follow the instructions to complete your payment.</p>
+            <p data-translate="confirmation_note">Your appointment will be confirmed once payment is received.</p>
+        </div>
+    </div>
 
+    <!-- Review Details Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <h3 data-translate="review_title">Review Your Details</h3>
             
-            let isValid = true;
-            const requiredFields = this.querySelectorAll('[required]');
+            <div class="review-details">
+                <div class="review-item">
+                    <strong data-translate="email_label">Email Address:</strong> 
+                    <span id="review-email"></span>
+                </div>
+                <div class="review-item">
+                    <strong data-translate="phone_label">Phone Number:</strong> 
+                    <span id="review-phone"></span>
+                </div>
+                <div class="review-item">
+                    <strong data-translate="country_label">Country:</strong> 
+                    <span id="review-country"></span>
+                </div>
+                <div class="review-item">
+                    <strong data-translate="city_label">City:</strong> 
+                    <span id="review-city"></span>
+                </div>
+                <div class="review-item">
+                    <strong data-translate="address_label">Address:</strong> 
+                    <span id="review-address"></span>
+                </div>
+                <div class="review-item">
+                    <strong data-translate="payment_method">Payment Method:</strong> 
+                    <span id="review-payment"></span>
+                </div>
+            </div>
             
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = '#e74c3c';
-                } else {
-                    field.style.borderColor = '#ddd';
+            <button type="button" class="booking-btn" onclick="submitForm()" data-translate="confirm_btn">Confirm & Submit</button>
+        </div>
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                med_beds: "MED-BEDS",
+                wellness_center: "Wellness Center",
+                all_rights: "All rights reserved",
+                header_title: "Secure a Direct Appointment with Medbeds Experts",
+                header_subtitle: "Experience the future of wellness with our cutting-edge med-bed technology. Schedule your personalized consultation with our certified specialists today.",
+                feature1_title: "Expert Consultation",
+                feature1_text: "Connect with our certified med-bed specialists for a comprehensive health assessment.",
+                feature2_title: "Instant Booking",
+                feature2_text: "Schedule your appointment at your convenience with our easy online booking system.",
+                feature3_title: "Secure Process",
+                feature3_text: "Your personal information and payment details are protected with advanced encryption.",
+                testimonial_text: "The med-bed consultation completely transformed my approach to wellness. The experts were knowledgeable and caring, and the technology is truly revolutionary. Worth every penny!",
+                testimonial_author: "- Sarah Johnson, Wellness Advocate",
+                booking_title: "Ready to Experience the Future of Wellness?",
+                booking_subtitle: "Take the first step toward optimal health by booking your consultation with our med-bed experts.",
+                book_now_btn: "Book Now",
+                contact_form_title: "Provide Your Contact Information",
+                contact_form_subtitle: "We'll use these details to confirm your appointment and send important updates",
+                email_label: "Email Address",
+                phone_label: "Phone Number",
+                country_label: "Country",
+                city_label: "City",
+                address_label: "Address",
+                payment_method_title: "Choose a Payment Method",
+                payment_method: "Payment Method",
+                select_option: "Select",
+                other_option: "Other",
+                submit_btn: "Submit",
+                confirm_btn: "Confirm & Submit",
+                contact_info: "Contact us: support@medbeds.com | (800) 123-4567",
+                review_title: "Review Your Details",
+                confirmation_title: "Payment Instructions Will Be Emailed",
+                confirmation_text: "We will send detailed payment instructions to your email address within 24 hours. Please check your inbox and follow the instructions to complete your payment.",
+                confirmation_note: "Your appointment will be confirmed once payment is received."
+            },
+            es: {
+                med_beds: "CAMAS MÉDICAS",
+                wellness_center: "Centro de Bienestar",
+                all_rights: "Todos los derechos reservados",
+                header_title: "Obtenga una cita directa con expertos en Camas Médicas",
+                header_subtitle: "Experimente el futuro del bienestar con nuestra tecnología de vanguardia en camas médicas. Programe su consulta personalizada con nuestros especialistas certificados hoy.",
+                feature1_title: "Consulta Expertas",
+                feature1_text: "Conéctese con nuestros especialistas certificados en camas médicas para una evaluación de salud completa.",
+                feature2_title: "Reserva Instantánea",
+                feature2_text: "Programe su cita a su conveniencia con nuestro sencillo sistema de reserva en línea.",
+                feature3_title: "Proceso Seguro",
+                feature3_text: "Su información personal y detalles de pago están protegidos con cifrado avanzado.",
+                testimonial_text: "La consulta con cama médica transformó completamente mi enfoque del bienestar. Los expertos fueron conocedores y atentos, y la tecnología es verdaderamente revolucionaria. ¡Valió cada centavo!",
+                testimonial_author: "- Sarah Johnson, Defensora del Bienestar",
+                booking_title: "¿Listo para Experimentar el Futuro del Bienestar?",
+                booking_subtitle: "Dé el primer paso hacia una salud óptima reservando su consulta con nuestros expertos en camas médicas.",
+                book_now_btn: "Reservar Ahora",
+                contact_form_title: "Proporcione Su Información de Contacto",
+                contact_form_subtitle: "Usaremos estos detalles para confirmar su cita y enviar actualizaciones importantes",
+                email_label: "Dirección de Correo Electrónico",
+                phone_label: "Número de Teléfono",
+                country_label: "País",
+                city_label: "Ciudad",
+                address_label: "Dirección",
+                payment_method_title: "Elija un Método de Pago",
+                payment_method: "Método de Pago",
+                select_option: "Seleccionar",
+                other_option: "Otro",
+                submit_btn: "Enviar",
+                confirm_btn: "Confirmar y Enviar",
+                contact_info: "Contáctenos: support@medbeds.com | (800) 123-4567",
+                review_title: "Revise Sus Detalles",
+                confirmation_title: "Las Instrucciones de Pago Serán Enviadas por Correo Electrónico",
+                confirmation_text: "Enviaremos instrucciones detalladas de pago a su dirección de correo electrónico dentro de 24 horas. Por favor revise su bandeja de entrada y siga las instrucciones para completar su pago.",
+                confirmation_note: "Su cita será confirmada una vez que se reciba el pago."
+            },
+            fr: {
+                med_beds: "LITS MÉDICAUX",
+                wellness_center: "Centre de Bien-être",
+                all_rights: "Tous droits réservés",
+                header_title: "Obtenez un Rendez-vous Direct avec des Experts en Lits Médicaux",
+                header_subtitle: "Vivez l'avenir du bien-être avec notre technologie de pointe de lits médicaux. Planifiez votre consultation personnalisée avec nos spécialistes certifiés aujourd'hui.",
+                feature1_title: "Consultation d'Expert",
+                feature1_text: "Connectez-vous avec nos spécialistes certifiés en lits médicaux pour une évaluation de santé complète.",
+                feature2_title: "Réservation Instantanée",
+                feature2_text: "Planifiez votre rendez-vous à votre convenance avec notre système de réservation en ligne facile.",
+                feature3_title: "Processus Sécurisé",
+                feature3_text: "Vos informations personnelles et détails de paiement sont protégés par un chiffrement avancé.",
+                testimonial_text: "La consultation avec lit médical a complètement transformé mon approche du bien-être. Les experts étaient compétents et attentionnés, et la technologie est vraiment révolutionnaire. Cela valait chaque centime!",
+                testimonial_author: "- Sarah Johnson, Défenseure du Bien-être",
+                booking_title: "Prêt à Découvrir l'Avenir du Bien-être?",
+                booking_subtitle: "Faites le premier pas vers une santé optimale en réservant votre consultation avec nos experts en lits médicaux.",
+                book_now_btn: "Réserver Maintenant",
+                contact_form_title: "Fournissez Vos Coordonnées",
+                contact_form_subtitle: "Nous utiliserons ces détails pour confirmer votre rendez-vous et envoyer des mises à jour importantes",
+                email_label: "Adresse E-mail",
+                phone_label: "Numéro de Téléphone",
+                country_label: "Pays",
+                city_label: "Ville",
+                address_label: "Adresse",
+                payment_method_title: "Choisissez une Méthode de Paiement",
+                payment_method: "Méthode de Paiement",
+                select_option: "Sélectionner",
+                other_option: "Autre",
+                submit_btn: "Soumettre",
+                confirm_btn: "Confirmer et Soumettre",
+                contact_info: "Contactez-nous: support@medbeds.com | (800) 123-4567",
+                review_title: "Vérifiez Vos Détails",
+                confirmation_title: "Les Instructions de Paiement Seront Envoyées par E-mail",
+                confirmation_text: "Nous enverrons des instructions de paiement détaillées à votre adresse e-mail dans les 24 heures. Veuillez vérifier votre boîte de réception et suivre les instructions pour compléter votre paiement.",
+                confirmation_note: "Votre rendez-vous sera confirmé une fois le paiement reçu."
+            },
+            de: {
+                med_beds: "MEDIZINISCHE BETTEN",
+                wellness_center: "Wellness-Zentrum",
+                all_rights: "Alle Rechte vorbehalten",
+                header_title: "Sichern Sie sich einen direkten Termin bei Medbeds-Experten",
+                header_subtitle: "Erleben Sie die Zukunft des Wohlbefindens mit unserer modernsten Med-Bett-Technologie. Planen Sie noch heute Ihre persönliche Beratung mit unseren zertifizierten Spezialisten.",
+                feature1_title: "Expertenberatung",
+                feature1_text: "Verbinden Sie sich mit unseren zertifizierten Med-Bett-Spezialisten für eine umfassende Gesundheitsbewertung.",
+                feature2_title: "Sofortige Buchung",
+                feature2_text: "Planen Sie Ihren Termin bequem mit unserem einfachen Online-Buchungssystem.",
+                feature3_title: "Sicherer Prozess",
+                feature3_text: "Ihre persönlichen Daten und Zahlungsdetails sind durch advanced Verschlüsselung geschützt.",
+                testimonial_text: "Die Med-Bett-Beratung hat meinen Ansatz zum Wohlbefinden völlig verändert. Die Experten waren kenntnisreich und fürsorglich, und die Technologie ist wirklich revolutionär. Jeden Cent wert!",
+                testimonial_author: "- Sarah Johnson, Wellness-Befürworterin",
+                booking_title: "Bereit, die Zukunft des Wohlbefindens zu erleben?",
+                booking_subtitle: "Machen Sie den ersten Schritt zur optimalen Gesundheit, indem Sie Ihre Beratung mit unseren Med-Bett-Experten buchen.",
+                book_now_btn: "Jetzt buchen",
+                contact_form_title: "Geben Sie Ihre Kontaktdaten an",
+                contact_form_subtitle: "Wir werden diese Details verwenden, um Ihren Termin zu bestätigen und wichtige Updates zu senden",
+                email_label: "E-Mail-Adresse",
+                phone_label: "Telefonnummer",
+                country_label: "Land",
+                city_label: "Stadt",
+                address_label: "Adresse",
+                payment_method_title: "Wählen Sie eine Zahlungsmethode",
+                payment_method: "Zahlungsmethode",
+                select_option: "Auswählen",
+                other_option: "Andere",
+                submit_btn: "Einreichen",
+                confirm_btn: "Bestätigen und einreichen",
+                contact_info: "Kontaktieren Sie uns: support@medbeds.com | (800) 123-4567",
+                review_title: "Überprüfen Sie Ihre Daten",
+                confirmation_title: "Zahlungsanweisungen werden per E-Mail zugesandt",
+                confirmation_text: "Wir senden Ihnen innerhalb von 24 Stunden detaillierte Zahlungsanweisungen an Ihre E-Mail-Adresse. Bitte überprüfen Sie Ihren Posteingang und befolgen Sie die Anweisungen, um Ihre Zahlung abzuschließen.",
+                confirmation_note: "Ihr Termin wird bestätigt, sobald die Zahlung eingegangen ist."
+            },
+            it: {
+                med_beds: "LETTI MEDICI",
+                wellness_center: "Centro Benessere",
+                all_rights: "Tutti i diritti riservati",
+                header_title: "Ottieni un Appuntamento Diretto con Esperti di Letti Medici",
+                header_subtitle: "Vivi il futuro del benessere con la nostra tecnologia all'avanguardia dei letti medici. Pianifica oggi la tua consulenza personalizzata con i nostri specialisti certificati.",
+                feature1_title: "Consulenza Esperta",
+                feature1_text: "Connettiti con i nostri specialisti certificati di letti medici per una valutazione sanitaria completa.",
+                feature2_title: "Prenotazione Istantanea",
+                feature2_text: "Pianifica il tuo appuntamento a tua convenienza con il nostro facile sistema di prenotazione online.",
+                feature3_title: "Processo Sicuro",
+                feature3_text: "Le tue informazioni personali e i dettagli di pagamento sono protetti con crittografia avanzata.",
+                testimonial_text: "La consulenza con il letto medico ha completamente trasformato il mio approccio al benessere. Gli esperti erano competenti e premurosi, e la tecnologia è veramente rivoluzionaria. Ne è valsa ogni centesimo!",
+                testimonial_author: "- Sarah Johnson, sostenitrice del benessere",
+                booking_title: "Pronto a Sperimentare il Futuro del Benessere?",
+                booking_subtitle: "Fai il primo passo verso una salute ottimale prenotando la tua consulenza con i nostri esperti di letti medici.",
+                book_now_btn: "Prenota Ora",
+                contact_form_title: "Fornisci le tue informazioni di contatto",
+                contact_form_subtitle: "Utilizzeremo questi dettagli per confermare il tuo appuntamento e inviare aggiornamenti importanti",
+                email_label: "Indirizzo Email",
+                phone_label: "Numero di Telefono",
+                country_label: "Paese",
+                city_label: "Città",
+                address_label: "Indirizzo",
+                payment_method_title: "Scegli un Metodo di Pagamento",
+                payment_method: "Metodo di Pagamento",
+                select_option: "Seleziona",
+                other_option: "Altro",
+                submit_btn: "Invia",
+                confirm_btn: "Conferma e Invia",
+                contact_info: "Contattaci: support@medbeds.com | (800) 123-4567",
+                review_title: "Rivedi i tuoi dati",
+                confirmation_title: "Le istruzioni per il pagamento verranno inviate via email",
+                confirmation_text: "Invieremo istruzioni di pagamento dettagliate al tuo indirizzo email entro 24 ore. Controlla la tua casella di posta e segui le istruzioni per completare il pagamento.",
+                confirmation_note: "Il tuo appuntamento verrà confermato una volta ricevuto il pagamento."
+            },
+            el: {
+                med_beds: "ΙΑΤΡΙΚΑ ΚΡΕΒΑΤΙΑ",
+                wellness_center: "Κέντρο Ευεξίας",
+                all_rights: "Με επιφύλαξη παντός δικαιώματος",
+                header_title: "Αποκτήστε Άμεσο Ραντεβού με Ειδικούς Ιατρικών Κρεβατιών",
+                header_subtitle: "Βιώστε το μέλλον της ευεξίας με την προηγμένη τεχνολογία των ιατρικών κρεβατιών. Προγραμματίστε την εξατομικευμένη συμβουλευτική σας με τους πιστοποιημένους ειδικούς μας σήμερα.",
+                feature1_title: "Εξειδικευμένη Συμβουλευτική",
+                feature1_text: "Συνδεθείτε με τους πιστοποιημένους ειδικούς ιατρικών κρεβατιών για μια ολοκληρωμένη αξιολόγηση υγείας.",
+                feature2_title: "Άμεση Κράτηση",
+                feature2_text: "Προγραμματίστε το ραντεβού σας κατά βολή με το εύχρηστο διαδικτυακό σύστημα κρατήσεων μας.",
+                feature3_title: "Ασφαλής Διαδικασία",
+                feature3_text: "Τα προσωπικά σας στοιχεία και οι πληροφορίες πληρωμής προστατεύονται με προηγμένη κρυπτογράφηση.",
+                testimonial_text: "Η συμβουλευτική με ιατρικό κρεβάτι μεταμόρφωσε εντελώς την προσέγγισή μου στην ευεξία. Οι ειδικοί ήταν γνώστες και στοργικοί, και η τεχνολογία είναι πραγματικά επαναστατική. Άξιζε κάθε λεπτό!",
+                testimonial_author: "- Σάρα Τζόνσον, Υπέρμαχος Ευεξίας",
+                booking_title: "Έτοιμοι να Βιώσετε το Μέλλον της Ευεξίας;",
+                booking_subtitle: "Κάντε το πρώτο βήμα προς τη βέλτιστη υγεία κλείνοντας τη συμβουλευτική σας με τους ειδικούς μας σε ιατρικά κρεβάτια.",
+                book_now_btn: "Κάντε Κράτηση Τώρα",
+                contact_form_title: "Παρακαλώ Δώστε Τα Στοιχεία Επικοινωνίας Σας",
+                contact_form_subtitle: "Θα χρησιμοποιήσουμε αυτά τα στοιχεία για να επιβεβαιώσουμε το ραντεβού σας και να σας στείλουμε σημαντικές ενημερώσεις",
+                email_label: "Διεύθυνση Email",
+                phone_label: "Αριθμός Τηλεφώνου",
+                country_label: "Χώρα",
+                city_label: "Πόλη",
+                address_label: "Διεύθυνση",
+                payment_method_title: "Επιλέξτε Την Μέθοδο Πληρωμής",
+                payment_method: "Μέθοδος Πληρωμής",
+                select_option: "Επιλέξτε",
+                other_option: "Άλλο",
+                submit_btn: "Υποβολή",
+                confirm_btn: "Επιβεβαίωση και Υποβολή",
+                contact_info: "Επικοινωνία: support@medbeds.com | (800) 123-4567",
+                review_title: "Ελέγξτε Τα Στοιχεία Σας",
+                confirmation_title: "Οι Οδηγίες Πληρωμής Θα Αποσταλούν Με Email",
+                confirmation_text: "Θα σας στείλουμε λεπτομερείς οδηγίες πληρωμής στη διεύθυνση email σας εντός 24 ωρών. Παρακαλούμε ελέγξτε τα εισερχόμενά σας και ακολουθήστε τις οδηγίες για να ολοκληρώσετε την πληρωμή σας.",
+                confirmation_note: "Το ραντεβού σας θα επιβεβαιωθεί μόλις ληφθεί η πληρωμή."
+            },
+            pt: {
+                med_beds: "LEITOS MÉDICOS",
+                wellness_center: "Centro de Bem-Estar",
+                all_rights: "Todos os direitos reservados",
+                header_title: "Garanta um Agendamento Direto com Especialistas em Leitos Médicos",
+                header_subtitle: "Experimente o futuro do bem-estar com nossa tecnologia de ponta em leitos médicos. Agende sua consulta personalizada com nossos especialistas certificados hoje.",
+                feature1_title: "Consulta com Especialistas",
+                feature1_text: "Conecte-se com nossos especialistas certificados em leitos médicos para uma avaliação de saúde abrangente.",
+                feature2_title: "Reserva Instantânea",
+                feature2_text: "Agende sua consulta conforme sua conveniência com nosso sistema de reserva online fácil.",
+                feature3_title: "Processo Seguro",
+                feature3_text: "Suas informações pessoais e detalhes de pagamento são protegidos com criptografia avançada.",
+                testimonial_text: "A consulta com leito médico transformou completamente minha abordagem ao bem-estar. Os especialistas eram conhecedores e atenciosos, e a tecnologia é verdadeiramente revolucionária. Valeu cada centavo!",
+                testimonial_author: "- Sarah Johnson, Defensora do Bem-Estar",
+                booking_title: "Pronto para Experimentar o Futuro do Bem-Estar?",
+                booking_subtitle: "Dê o primeiro passo para uma saúde ideal agendando sua consulta com nossos especialistas em leitos médicos.",
+                book_now_btn: "Agendar Agora",
+                contact_form_title: "Forneça Suas Informações de Contato",
+                contact_form_subtitle: "Usaremos esses detalhes para confirmar sua consulta e enviar atualizações importantes",
+                email_label: "Endereço de E-mail",
+                phone_label: "Número de Telefone",
+                country_label: "País",
+                city_label: "Cidade",
+                address_label: "Endereço",
+                payment_method_title: "Escolha um Método de Pagamento",
+                payment_method: "Método de Pagamento",
+                select_option: "Selecionar",
+                other_option: "Outro",
+                submit_btn: "Enviar",
+                confirm_btn: "Confirmar e Enviar",
+                contact_info: "Contate-nos: support@medbeds.com | (800) 123-4567",
+                review_title: "Revise Seus Detalhes",
+                confirmation_title: "Instruções de Pagamento Serão Enviadas por E-mail",
+                confirmation_text: "Enviaremos instruções de pagamento detalhadas para seu endereço de e-mail dentro de 24 horas. Por favor, verifique sua caixa de entrada e siga as instruções para concluir seu pagamento.",
+                confirmation_note: "Sua consulta será confirmada assim que o pagamento for recebido."
+            },
+            nl: {
+                med_beds: "MEDISCHE BEDDEN",
+                wellness_center: "Wellnesscentrum",
+                all_rights: "Alle rechten voorbehouden",
+                header_title: "Regel een Directe Afspraak met Medbed-experts",
+                header_subtitle: "Ervaar de toekomst van wellness met onze geavanceerde med-bed technologie. Plan vandaag nog uw persoonlijk consult met onze gecertificeerde specialisten.",
+                feature1_title: "Expert Consultatie",
+                feature1_text: "Maak verbinding met onze gecertificeerde med-bed specialisten voor een uitgebreide gezondheidsevaluatie.",
+                feature2_title: "Direct Boeken",
+                feature2_text: "Plan uw afspraak op uw gemak met ons eenvoudige online boekingssysteem.",
+                feature3_title: "Beveiligd Proces",
+                feature3_text: "Uw persoonlijke gegevens en betalingsgegevens zijn beschermd met geavanceerde encryptie.",
+                testimonial_text: "De med-bed consultatie heeft mijn benadering van wellness volledig veranderd. De experts waren kundig en zorgzaam, en de technologie is werkelijk revolutionair. Elke cent waard!",
+                testimonial_author: "- Sarah Johnson, Wellnessvoorstander",
+                booking_title: "Klaar om de Toekomst van Wellness te Ervaren?",
+                booking_subtitle: "Zet de eerste stap naar optimale gezondheid door uw consultatie te boeken met onze med-bed experts.",
+                book_now_btn: "Nu Boeken",
+                contact_form_title: "Geef Uw Contactgegevens",
+                contact_form_subtitle: "We zullen deze gegevens gebruiken om uw afspraak te bevestigen en belangrijke updates te sturen",
+                email_label: "E-mailadres",
+                phone_label: "Telefoonnummer",
+                country_label: "Land",
+                city_label: "Stad",
+                address_label: "Adres",
+                payment_method_title: "Kies een Betaalmethode",
+                payment_method: "Betaalmethode",
+                select_option: "Selecteren",
+                other_option: "Anders",
+                submit_btn: "Indienen",
+                confirm_btn: "Bevestigen en Indienen",
+                contact_info: "Neem contact met ons op: support@medbeds.com | (800) 123-4567",
+                review_title: "Controleer Uw Gegevens",
+                confirmation_title: "Betalingsinstructies Worden Gemaild",
+                confirmation_text: "We sturen gedetailleerde betalingsinstructies binnen 24 uur naar uw e-mailadres. Controleer uw inbox en volg de instructies om uw betaling te voltooien.",
+                confirmation_note: "Uw afspraak wordt bevestigd zodra de betaling is ontvangen."
+            }
+        };
+
+        // Set default language
+        let currentLanguage = 'en';
+        
+        // Change language function
+        function changeLanguage() {
+            currentLanguage = document.getElementById('languageSelect').value;
+            applyTranslations();
+        }
+        
+        // Apply translations to all elements
+        function applyTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    if (element.placeholder !== undefined) {
+                        element.placeholder = translations[currentLanguage][key];
+                    } else {
+                        element.textContent = translations[currentLanguage][key];
+                    }
                 }
             });
             
-            if (!isValid) {
-                alert('Please fill in all required fields.');
+            // Sync language selectors
+            if (document.getElementById('languageSelectConfirmation')) {
+                document.getElementById('languageSelectConfirmation').value = currentLanguage;
+            }
+        }
+        
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('languageSelect').addEventListener('change', changeLanguage);
+            if (document.getElementById('languageSelectConfirmation')) {
+                document.getElementById('languageSelectConfirmation').addEventListener('change', changeLanguage);
+            }
+            applyTranslations();
+        });
+        
+        function toggleDropdown() {
+            const dropdown = document.getElementById('dropdownContent');
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }
+        
+        function reviewDetails() {
+            // Validate form
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const country = document.getElementById('country').value;
+            const city = document.getElementById('city').value;
+            const address = document.getElementById('address').value;
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            if (!email || !phone || !country || !city || !address || !paymentMethod) {
+                alert('Please fill in all fields and select a payment method');
                 return;
             }
             
-            // If form is valid, show success page with details
-            showSuccessPage();
+            // Populate review modal
+            document.getElementById('review-email').textContent = email;
+            document.getElementById('review-phone').textContent = phone;
+            document.getElementById('review-country').textContent = document.getElementById('country').options[document.getElementById('country').selectedIndex].text;
+            document.getElementById('review-city').textContent = city;
+            document.getElementById('review-address').textContent = address;
+            document.getElementById('review-payment').textContent = paymentMethod.value;
             
-            // In production, you would let the form submit to Formspree normally
-            // and Formspree would redirect to a thank you page
-        });
+            // Show review modal
+            document.getElementById('reviewModal').style.display = 'flex';
+            applyTranslations();
+        }
         
-        function showSuccessPage() {
-            // Get form values
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const message = document.getElementById('message').value;
+        function submitForm() {
+            // Submit the form to Formspree
+            document.getElementById('contactForm').submit();
             
-            // Format the service name for display
-            const serviceText = {
-                'consultation': 'Initial Consultation',
-                'project': 'Project Development',
-                'support': 'Technical Support',
-                'training': 'Professional Training',
-                'other': 'Other Service'
-            }[service] || service;
+            // Hide review modal
+            document.getElementById('reviewModal').style.display = 'none';
             
-            // Format the date for display
-            const formattedDate = new Date(date).toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-            
-            // Format the time for display
-            const timeText = {
-                '09:00': '9:00 AM',
-                '10:00': '10:00 AM',
-                '11:00': '11:00 AM',
-                '13:00': '1:00 PM',
-                '14:00': '2:00 PM',
-                '15:00': '3:00 PM',
-                '16:00': '4:00 PM'
-            }[time] || time;
-            
-            // Update success page with details
-            document.getElementById('summary-name').textContent = `${firstName} ${lastName}`;
-            document.getElementById('summary-email').textContent = email;
-            document.getElementById('summary-phone').textContent = phone;
-            document.getElementById('summary-service').textContent = serviceText;
-            document.getElementById('summary-datetime').textContent = `${formattedDate} at ${timeText}`;
-            document.getElementById('summary-message').textContent = message || 'No message provided';
-            
-            // Show success page, hide booking form
+            // Show confirmation page
             document.getElementById('bookingPage').style.display = 'none';
-            document.getElementById('successPage').style.display = 'block';
-            
-            // Scroll to top of page
-            window.scrollTo(0, 0);
+            document.getElementById('confirmationPage').style.display = 'block';
+            applyTranslations();
         }
     </script>
 </body>
